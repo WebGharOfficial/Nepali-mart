@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Shopping Cart - Nepali Mart">
+    <title>Shopping Cart - Nepali Mart</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="src/styles.css">
+</head>
+<body class="bg-gray-50 font-sans">
+
+    <!-- Sticky Navigation Bar -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50 border-b-2 border-green-600" role="navigation" aria-label="Main Navigation">
+        <div class="container mx-auto px-4 lg:px-6 py-4">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
+                <a href="index.html" class="flex items-center space-x-2" aria-label="Go to homepage">
+                    <div class="w-10 h-10 bg-green-600 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-shopping-basket text-white text-xl"></i>
+                    </div>
+                    <span class="text-2xl font-bold text-gray-800 minecraft-font">Nepali Mart</span>
+                </a>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden lg:flex items-center space-x-8">
+                    <!-- Category Dropdown -->
+                    <div class="relative group">
+                        <button class="flex items-center space-x-1 text-gray-700 hover:text-green-600 transition-colors">
+                            <span>Categories</span>
+                            <i class="fas fa-chevron-down text-sm"></i>
+                        </button>
+                        <div class="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-xl border border-gray-200 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                            <a href="groceries.html" class="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600">Groceries</a>
+                            <a href="furniture.html" class="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600">Furniture</a>
+                            <a href="electronics.html" class="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600">Electronics</a>
+                            <a href="sports.html" class="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600">Sports</a>
+                        </div>
+                    </div>
+
+                    <!-- Navigation Links -->
+                    <a href="index.html" class="text-gray-700 hover:text-green-600 transition-colors font-medium">Home</a>
+                    <a href="products.html" class="text-gray-700 hover:text-green-600 transition-colors font-medium">Products</a>
+                    <a href="offers.html" class="text-gray-700 hover:text-green-600 transition-colors font-medium">Offers</a>
+                    <a href="about.html" class="text-gray-700 hover:text-green-600 transition-colors font-medium">About</a>
+                    <a href="contact.html" class="text-gray-700 hover:text-green-600 transition-colors font-medium">Contact</a>
+
+                    <!-- Cart Icon with Count -->
+                    <a href="cart.html" class="relative text-gray-700 hover:text-green-600 transition-colors">
+                        <i class="fas fa-shopping-cart text-xl"></i>
+                        <span id="cart-count" class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center font-bold">0</span>
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="lg:hidden text-gray-700 focus:outline-none" aria-label="Open mobile menu">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="lg:hidden hidden mt-4 pb-4 border-t border-gray-200">
+                <div class="mt-4 space-y-2">
+                    <a href="index.html" class="block py-2 text-gray-700 hover:text-green-600">Home</a>
+                    <a href="products.html" class="block py-2 text-gray-700 hover:text-green-600">Products</a>
+                    <a href="offers.html" class="block py-2 text-gray-700 hover:text-green-600">Offers</a>
+                    <a href="about.html" class="block py-2 text-gray-700 hover:text-green-600">About</a>
+                    <a href="contact.html" class="block py-2 text-gray-700 hover:text-green-600">Contact</a>
+                    <div class="border-t border-gray-200 pt-2 mt-2">
+                        <h3 class="font-semibold text-gray-500 text-sm px-2 mb-1">Categories</h3>
+                        <a href="groceries.html" class="block py-2 px-4 text-gray-700 hover:text-green-600 hover:bg-green-50 rounded">Groceries</a>
+                        <a href="furniture.html" class="block py-2 px-4 text-gray-700 hover:text-green-600 hover:bg-green-50 rounded">Furniture</a>
+                        <a href="electronics.html" class="block py-2 px-4 text-gray-700 hover:text-green-600 hover:bg-green-50 rounded">Electronics</a>
+                        <a href="sports.html" class="block py-2 px-4 text-gray-700 hover:text-green-600 hover:bg-green-50 rounded">Sports</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="bg-gradient-to-r from-green-600 to-green-800 py-16">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl lg:text-5xl font-bold text-white mb-4 minecraft-font">Shopping Cart</h1>
+            <p class="text-xl text-green-100">Review your items and proceed to checkout</p>
+        </div>
+    </header>
+
+    <!-- Cart Section -->
+    <main class="py-16 bg-gray-50" role="main">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Cart Items -->
+                <div class="lg:col-span-2">
+                    <div class="bg-white rounded-xl shadow-lg p-6">
+                        <div class="flex items-center justify-between mb-6">
+                            <h2 class="text-2xl font-bold text-gray-800">Cart Items</h2>
+                            <button id="clear-cart-btn" class="text-red-500 hover:text-red-700 font-medium">
+                                <i class="fas fa-trash mr-2"></i>Clear Cart
+                            </button>
+                        </div>
+                        
+                        <!-- Empty Cart Message -->
+                        <div id="cart-empty" class="text-center py-12" style="display: none;">
+                            <i class="fas fa-shopping-cart text-6xl text-gray-300 mb-4"></i>
+                            <h3 class="text-xl font-semibold text-gray-600 mb-2">Your cart is empty</h3>
+                            <p class="text-gray-500 mb-6">Looks like you haven't added any items to your cart yet.</p>
+                            <a href="products.html" class="inline-block bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors">
+                                <i class="fas fa-shopping-bag mr-2"></i>Start Shopping
+                            </a>
+                        </div>
+                        
+                        <!-- Cart Items Container -->
+                        <div id="cart-items">
+                            <!-- Cart items will be dynamically inserted here -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Order Summary -->
+                <div class="lg:col-span-1">
+                    <div class="bg-white rounded-xl shadow-lg p-6 sticky top-24">
+                        <h2 class="text-2xl font-bold text-gray-800 mb-6">Order Summary</h2>
+                        
+                        <div class="space-y-4 mb-6">
+                            <div class="flex justify-between text-gray-600">
+                                <span>Subtotal</span>
+                                <span id="cart-subtotal">Rs. 0.00</span>
+                            </div>
+                            <div class="flex justify-between text-gray-600">
+                                <span>Shipping</span>
+                                <span id="shipping-cost">Rs. 0.00</span>
+                            </div>
+                            <div class="flex justify-between text-gray-600">
+                                <span>Tax</span>
+                                <span id="tax-amount">Rs. 0.00</span>
+                            </div>
+                            <div class="border-t border-gray-200 pt-4">
+                                <div class="flex justify-between text-xl font-bold text-gray-800">
+                                    <span>Total</span>
+                                    <span id="cart-total">Rs. 0.00</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <button id="checkout-btn" class="w-full bg-green-600 text-white py-4 rounded-lg font-semibold hover:bg-green-700 transition-colors mb-4">
+                            <i class="fas fa-credit-card mr-2"></i>Proceed to Checkout
+                        </button>
+                        
+                        <a href="products.html" class="w-full bg-gray-200 text-gray-800 py-3 rounded-lg font-semibold hover:bg-gray-300 transition-colors inline-block text-center">
+                            <i class="fas fa-arrow-left mr-2"></i>Continue Shopping
+                        </a>
+                        
+                        <!-- Promo Code -->
+                        <div class="mt-6 pt-6 border-t border-gray-200">
+                            <h3 class="font-semibold text-gray-800 mb-3">Have a promo code?</h3>
+                            <div class="flex">
+                                <input type="text" placeholder="Enter code" 
+                                       class="flex-1 px-4 py-2 border border-gray-300 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-green-500">
+                                <button class="px-4 py-2 bg-green-600 text-white rounded-r-lg hover:bg-green-700 transition-colors">
+                                    Apply
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Recommended Products -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12 minecraft-font">You Might Also Like</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Recommended Product 1 -->
+                <div class="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden group">
+                    <div class="relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1586201375761-83865001e31c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                             alt="Premium Rice" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Premium Basmati Rice</h3>
+                        <p class="text-2xl font-bold text-green-600 mb-4">Rs. 24.99</p>
+                        <button class="w-full bg-green-600 text-white py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors add-to-cart-btn" 
+                                data-name="Premium Basmati Rice" data-price="24.99">
+                            <i class="fas fa-cart-plus mr-2"></i>Add to Cart
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Recommended Product 2 -->
+                <div class="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden group">
+                    <div class="relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                             alt="Organic Oil" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Organic Coconut Oil</h3>
+                        <p class="text-2xl font-bold text-green-600 mb-4">Rs. 18.99</p>
+                        <button class="w-full bg-green-600 text-white py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors add-to-cart-btn" 
+                                data-name="Organic Coconut Oil" data-price="18.99">
+                            <i class="fas fa-cart-plus mr-2"></i>Add to Cart
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Recommended Product 3 -->
+                <div class="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden group">
+                    <div class="relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                             alt="Fresh Vegetables" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Fresh Vegetable Pack</h3>
+                        <p class="text-2xl font-bold text-green-600 mb-4">Rs. 12.99</p>
+                        <button class="w-full bg-green-600 text-white py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors add-to-cart-btn" 
+                                data-name="Fresh Vegetable Pack" data-price="12.99">
+                            <i class="fas fa-cart-plus mr-2"></i>Add to Cart
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Recommended Product 4 -->
+                <div class="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden group">
+                    <div class="relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                             alt="Organic Fruits" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Organic Fruit Basket</h3>
+                        <p class="text-2xl font-bold text-green-600 mb-4">Rs. 32.99</p>
+                        <button class="w-full bg-green-600 text-white py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors add-to-cart-btn" 
+                                data-name="Organic Fruit Basket" data-price="32.99">
+                            <i class="fas fa-cart-plus mr-2"></i>Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modern Footer -->
+    <footer class="bg-gray-900 text-white" role="contentinfo" aria-label="Footer">
+        <div class="container mx-auto px-4 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Company Info -->
+                <div class="col-span-1 md:col-span-2">
+                    <div class="flex items-center space-x-2 mb-4">
+                        <div class="w-10 h-10 bg-green-600 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-shopping-basket text-white text-xl"></i>
+                        </div>
+                        <span class="text-2xl font-bold minecraft-font">Nepali Mart</span>
+                    </div>
+                    <p class="text-gray-400 mb-4 max-w-md">
+                        Your trusted neighborhood store providing quality products and exceptional service. 
+                        We're committed to bringing you the best shopping experience.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-facebook-f text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-youtube text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="about.html" class="text-gray-400 hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="products.html" class="text-gray-400 hover:text-white transition-colors">Products</a></li>
+                        <li><a href="offers.html" class="text-gray-400 hover:text-white transition-colors">Offers</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-white transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Support -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Support</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Help Center</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Privacy Policy</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Terms of Service</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Shipping Info</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center">
+                <p class="text-gray-400">&copy; 2024 Nepali Mart. All Rights Reserved.</p>
+                <p class="text-gray-400 mt-2">Contact: info@nepalimart.com | Phone: +977-1-2345678</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="src/script.js"></script>
+</body>
+</html> 

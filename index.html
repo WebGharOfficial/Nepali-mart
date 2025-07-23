@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Nepali Mart - Your Trusted Neighborhood Store">
+    <meta name="keywords" content="Nepali Mart, supermarket, grocery, Nepal, e-commerce">
+    <title>Nepali Mart - Your Trusted Neighborhood Store</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="src/styles.css">
+</head>
+<body class="bg-gray-50 font-sans">
+
+    <!-- Sticky Navigation Bar -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50 border-b-2 border-green-600" role="navigation" aria-label="Main Navigation">
+        <div class="container mx-auto px-4 lg:px-6 py-4">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
+                <a href="index.html" class="flex items-center space-x-2" aria-label="Go to homepage">
+                    <div class="w-10 h-10 bg-green-600 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-shopping-basket text-white text-xl"></i>
+                    </div>
+                    <span class="text-2xl font-bold text-gray-800 minecraft-font">Nepali Mart</span>
+                </a>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden lg:flex items-center space-x-8">
+                    <!-- Category Dropdown -->
+                    <div class="relative group">
+                        <button class="flex items-center space-x-1 text-gray-700 hover:text-green-600 transition-colors">
+                            <span>Categories</span>
+                            <i class="fas fa-chevron-down text-sm"></i>
+                        </button>
+                        <div class="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-xl border border-gray-200 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                            <a href="groceries.html" class="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600">Groceries</a>
+                            <a href="furniture.html" class="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600">Furniture</a>
+                            <a href="electronics.html" class="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600">Electronics</a>
+                            <a href="sports.html" class="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600">Sports</a>
+                        </div>
+                    </div>
+
+                    <!-- Navigation Links -->
+                    <a href="index.html" class="text-gray-700 hover:text-green-600 transition-colors font-medium">Home</a>
+                    <a href="products.html" class="text-gray-700 hover:text-green-600 transition-colors font-medium">Products</a>
+                    <a href="offers.html" class="text-gray-700 hover:text-green-600 transition-colors font-medium">Offers</a>
+                    <a href="about.html" class="text-gray-700 hover:text-green-600 transition-colors font-medium">About</a>
+                    <a href="contact.html" class="text-gray-700 hover:text-green-600 transition-colors font-medium">Contact</a>
+
+                    <!-- Cart Icon with Count -->
+                    <a href="cart.html" class="relative text-gray-700 hover:text-green-600 transition-colors">
+                        <i class="fas fa-shopping-cart text-xl"></i>
+                        <span id="cart-count" class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center font-bold">0</span>
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="lg:hidden text-gray-700 focus:outline-none" aria-label="Open mobile menu">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="lg:hidden hidden mt-4 pb-4 border-t border-gray-200">
+                <div class="mt-4 space-y-2">
+                    <a href="index.html" class="block py-2 text-gray-700 hover:text-green-600">Home</a>
+                    <a href="products.html" class="block py-2 text-gray-700 hover:text-green-600">Products</a>
+                    <a href="offers.html" class="block py-2 text-gray-700 hover:text-green-600">Offers</a>
+                    <a href="about.html" class="block py-2 text-gray-700 hover:text-green-600">About</a>
+                    <a href="contact.html" class="block py-2 text-gray-700 hover:text-green-600">Contact</a>
+                    <div class="border-t border-gray-200 pt-2 mt-2">
+                        <h3 class="font-semibold text-gray-500 text-sm px-2 mb-1">Categories</h3>
+                        <a href="groceries.html" class="block py-2 px-4 text-gray-700 hover:text-green-600 hover:bg-green-50 rounded">Groceries</a>
+                        <a href="furniture.html" class="block py-2 px-4 text-gray-700 hover:text-green-600 hover:bg-green-50 rounded">Furniture</a>
+                        <a href="electronics.html" class="block py-2 px-4 text-gray-700 hover:text-green-600 hover:bg-green-50 rounded">Electronics</a>
+                        <a href="sports.html" class="block py-2 px-4 text-gray-700 hover:text-green-600 hover:bg-green-50 rounded">Sports</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Banner -->
+    <header class="relative bg-gradient-to-r from-green-600 to-green-800 h-96 lg:h-[500px] overflow-hidden">
+        <div class="absolute inset-0 bg-black opacity-20"></div>
+        <div class="absolute inset-0" style="background-image: url('https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80'); background-size: cover; background-position: center; opacity: 0.3;"></div>
+        <div class="relative container mx-auto h-full flex items-center justify-center px-4">
+            <div class="text-center text-white">
+                <h1 class="text-4xl lg:text-6xl font-bold mb-4 minecraft-font">Welcome to Nepali Mart</h1>
+                <p class="text-xl lg:text-2xl mb-8 text-green-100">Your Trusted Neighborhood Store</p>
+                <div class="space-x-4">
+                    <a href="products.html" class="inline-block bg-white text-green-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                        <i class="fas fa-shopping-bag mr-2"></i>Shop Now
+                    </a>
+                    <a href="offers.html" class="inline-block border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-green-600 transition-colors">
+                        <i class="fas fa-tag mr-2"></i>View Offers
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Featured Categories -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12 minecraft-font">Shop by Category</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <a href="groceries.html" class="text-center group cursor-pointer">
+                    <div class="w-20 h-20 mx-auto mb-4 bg-green-100 rounded-lg flex items-center justify-center group-hover:bg-green-200 transition-colors">
+                        <i class="fas fa-apple-alt text-2xl text-green-600"></i>
+                    </div>
+                    <h3 class="font-semibold text-gray-800">Groceries</h3>
+                </a>
+                <a href="furniture.html" class="text-center group cursor-pointer">
+                    <div class="w-20 h-20 mx-auto mb-4 bg-blue-100 rounded-lg flex items-center justify-center group-hover:bg-blue-200 transition-colors">
+                        <i class="fas fa-couch text-2xl text-blue-600"></i>
+                    </div>
+                    <h3 class="font-semibold text-gray-800">Furniture</h3>
+                </a>
+                <a href="electronics.html" class="text-center group cursor-pointer">
+                    <div class="w-20 h-20 mx-auto mb-4 bg-yellow-100 rounded-lg flex items-center justify-center group-hover:bg-yellow-200 transition-colors">
+                        <i class="fas fa-mobile-alt text-2xl text-yellow-600"></i>
+                    </div>
+                    <h3 class="font-semibold text-gray-800">Electronics</h3>
+                </a>
+                <a href="sports.html" class="text-center group cursor-pointer">
+                    <div class="w-20 h-20 mx-auto mb-4 bg-red-100 rounded-lg flex items-center justify-center group-hover:bg-red-200 transition-colors">
+                        <i class="fas fa-futbol text-2xl text-red-600"></i>
+                    </div>
+                    <h3 class="font-semibold text-gray-800">Sports</h3>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Awards Slideshow Section -->
+    <section class="py-16 bg-gradient-to-r from-yellow-50 to-orange-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12 minecraft-font">Our Awards & Recognition</h2>
+            
+            <!-- Awards Slideshow -->
+            <div class="max-w-4xl mx-auto relative">
+                <div id="awards-slideshow" class="relative overflow-hidden rounded-xl shadow-2xl">
+                    <div class="flex transition-transform duration-500 ease-in-out" id="awards-container">
+                        <!-- Award 1 - 2008 -->
+                        <div class="w-full flex-shrink-0">
+                            <div class="relative">
+                                <img src="images/carousel1.png" 
+                                     alt="2008 Award" class="w-full h-96 object-cover" loading="lazy">
+                                <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+                                    <div class="text-center text-white p-6">
+                                        <h3 class="text-2xl font-bold mb-2">2008 Award</h3>
+                                        <p class="text-lg">Nepal Business Review Green Retail Award</p>
+                                        <button onclick="scrollToAward('award-2008')" class="mt-4 bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-lg transition-colors">
+                                            Learn More
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Award 2 - 2016 -->
+                        <div class="w-full flex-shrink-0">
+                            <div class="relative">
+                                <img src="images/carousel2.png" 
+                                     alt="2016 Award" class="w-full h-96 object-cover" loading="lazy">
+                                <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+                                    <div class="text-center text-white p-6">
+                                        <h3 class="text-2xl font-bold mb-2">2016 Award</h3>
+                                        <p class="text-lg">National E-Commerce Innovation Award</p>
+                                        <button onclick="scrollToAward('award-2016')" class="mt-4 bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-lg transition-colors">
+                                            Learn More
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Award 3 - 2021 -->
+                        <div class="w-full flex-shrink-0">
+                            <div class="relative">
+                                <img src="images/carousel3.png" 
+                                     alt="2021 Award" class="w-full h-96 object-cover" loading="lazy">
+                                <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+                                    <div class="text-center text-white p-6">
+                                        <h3 class="text-2xl font-bold mb-2">2021 Award</h3>
+                                        <p class="text-lg">Social Impact Excellence Award</p>
+                                        <button onclick="scrollToAward('award-2021')" class="mt-4 bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-lg transition-colors">
+                                            Learn More
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Navigation Arrows -->
+                    <button id="prev-btn" class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-80 hover:bg-opacity-100 text-gray-800 p-3 rounded-full shadow-lg transition-all">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button id="next-btn" class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-80 hover:bg-opacity-100 text-gray-800 p-3 rounded-full shadow-lg transition-all">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                    
+                    <!-- Dots Indicator -->
+                    <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+                        <button class="w-3 h-3 bg-white bg-opacity-60 rounded-full hover:bg-opacity-100 transition-all award-dot active" data-slide="0"></button>
+                        <button class="w-3 h-3 bg-white bg-opacity-60 rounded-full hover:bg-opacity-100 transition-all award-dot" data-slide="1"></button>
+                        <button class="w-3 h-3 bg-white bg-opacity-60 rounded-full hover:bg-opacity-100 transition-all award-dot" data-slide="2"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <main class="py-16 bg-gray-50" role="main">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 minecraft-font">Featured Products</h2>
+                <a href="products.html" class="text-green-600 hover:text-green-700 font-semibold flex items-center">
+                    View All <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Product Card 1 -->
+                <div class="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden group">
+                    <div class="relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1586201375761-83865001e31c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                             alt="Fresh Rice" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy">
+                        <div class="absolute top-2 right-2 bg-red-500 text-white px-2 py-1 rounded-full text-xs font-bold">SALE</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Premium Basmati Rice</h3>
+                        <p class="text-gray-600 text-sm mb-3">High-quality aromatic rice perfect for your meals</p>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-2xl font-bold text-green-600">Rs. 3,324</span>
+                            <span class="text-gray-400 line-through text-sm">Rs. 3,999</span>
+                        </div>
+                        <button class="w-full bg-green-600 text-white py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors add-to-cart-btn" 
+                                data-name="Premium Basmati Rice" data-price="3324">
+                            <i class="fas fa-cart-plus mr-2"></i>Add to Cart
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product Card 2 -->
+                <div class="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden group">
+                    <div class="relative overflow-hidden">
+                        <img src="images/Organic Coconut Oil.jpg" 
+                             alt="Organic Oil" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Organic Coconut Oil</h3>
+                        <p class="text-gray-600 text-sm mb-3">Pure and natural coconut oil for cooking</p>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-2xl font-bold text-green-600">Rs. 1,724</span>
+                        </div>
+                        <button class="w-full bg-green-600 text-white py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors add-to-cart-btn" 
+                                data-name="Organic Coconut Oil" data-price="1724">
+                            <i class="fas fa-cart-plus mr-2"></i>Add to Cart
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product Card 3 -->
+                <div class="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden group">
+                    <div class="relative overflow-hidden">
+                        <img src="images/Fresh Vegetable Pack.jpg" 
+                             alt="Fresh Vegetables" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy">
+                        <div class="absolute top-2 right-2 bg-green-500 text-white px-2 py-1 rounded-full text-xs font-bold">FRESH</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Fresh Vegetable Pack</h3>
+                        <p class="text-gray-600 text-sm mb-3">Assorted fresh vegetables from local farms</p>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-2xl font-bold text-green-600">Rs. 1,224</span>
+                        </div>
+                        <button class="w-full bg-green-600 text-white py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors add-to-cart-btn" 
+                                data-name="Fresh Vegetable Pack" data-price="1224">
+                            <i class="fas fa-cart-plus mr-2"></i>Add to Cart
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product Card 4 -->
+                <div class="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden group">
+                    <div class="relative overflow-hidden">
+                        <img src="images/Organic Fruit Basket.jpg" 
+                             alt="Organic Fruits" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy">
+                        <div class="absolute top-2 right-2 bg-blue-500 text-white px-2 py-1 rounded-full text-xs font-bold">ORGANIC</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Organic Fruit Basket</h3>
+                        <p class="text-gray-600 text-sm mb-3">Seasonal organic fruits for healthy living</p>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-2xl font-bold text-green-600">Rs. 4,384</span>
+                        </div>
+                        <button class="w-full bg-green-600 text-white py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors add-to-cart-btn" 
+                                data-name="Organic Fruit Basket" data-price="4384">
+                            <i class="fas fa-cart-plus mr-2"></i>Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Features Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="text-center">
+                    <div class="w-16 h-16 mx-auto mb-4 bg-green-100 rounded-full flex items-center justify-center">
+                        <i class="fas fa-truck text-2xl text-green-600"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Fast Delivery</h3>
+                    <p class="text-gray-600">Free delivery on orders over Rs. 6,650</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-16 h-16 mx-auto mb-4 bg-green-100 rounded-full flex items-center justify-center">
+                        <i class="fas fa-shield-alt text-2xl text-green-600"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Quality Guarantee</h3>
+                    <p class="text-gray-600">100% quality assurance on all products</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-16 h-16 mx-auto mb-4 bg-green-100 rounded-full flex items-center justify-center">
+                        <i class="fas fa-headset text-2xl text-green-600"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">24/7 Support</h3>
+                    <p class="text-gray-600">Round the clock customer support</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Story Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <!-- Main Story -->
+            <div class="max-w-4xl mx-auto text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-800 mb-8 minecraft-font">Our Story</h2>
+                <div class="bg-white rounded-xl shadow-lg p-8 text-left">
+                    <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                        Nepali-Mart traces its roots back to 1978, when visionary entrepreneur Ram Prasad Nepal opened a small general store in the bustling alleys of Ason, Kathmandu. What began as a tiny shop selling rice, salt, and lentils soon became a cornerstone for local families, thanks to Ram Prasad's relentless focus on fair trade practices, supporting local farmers, and ensuring product authenticity.
+                    </p>
+                    <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                        Throughout the 1980s and 1990s, Nepali-Mart earned recognition for being among the first in Nepal to standardize pricing on essential goods — an initiative applauded by local consumer rights groups at the time. Critics and analysts often noted how Nepali-Mart helped reduce reliance on imported packaged goods, instead prioritizing partnerships with homegrown producers from places like Jhapa, Ilam, and Mustang.
+                    </p>
+                    <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                        By 2000, Nepali-Mart had evolved into a chain of modern retail stores, known for its clean shopping environments, transparent pricing, and strict quality control standards. In 2008, we were featured in Nepal Business Review for introducing eco-friendly packaging and supporting rural women's cooperatives.
+                    </p>
+                    <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                        In 2014, we launched our online shopping platform, becoming one of the earliest adopters of e-commerce for everyday goods in Nepal. Today, Nepali-Mart is celebrated for:
+                    </p>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+                        <div class="text-center p-4 bg-green-50 rounded-lg">
+                            <i class="fas fa-flag text-2xl text-green-600 mb-2"></i>
+                            <p class="font-semibold text-gray-800">Championing Nepali-made products</p>
+                            <p class="text-sm text-gray-600">Over 60% of our inventory is sourced from Nepali farmers and manufacturers.</p>
+                        </div>
+                        <div class="text-center p-4 bg-green-50 rounded-lg">
+                            <i class="fas fa-handshake text-2xl text-green-600 mb-2"></i>
+                            <p class="font-semibold text-gray-800">Transparent pricing and ethical sourcing</p>
+                            <p class="text-sm text-gray-600">Key principles that have defined our business for over 45 years.</p>
+                        </div>
+                        <div class="text-center p-4 bg-green-50 rounded-lg">
+                            <i class="fas fa-heart text-2xl text-green-600 mb-2"></i>
+                            <p class="font-semibold text-gray-800">Social impact</p>
+                            <p class="text-sm text-gray-600">From fair wages to disaster relief initiatives, we are deeply woven into the fabric of our community.</p>
+                        </div>
+                    </div>
+                    <p class="text-lg text-gray-700 leading-relaxed font-semibold">
+                        At Nepali-Mart, we don't just sell goods — we continue a legacy of trust, tradition, and transformation.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Story Images Section -->
+            <div class="max-w-6xl mx-auto mb-16">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Founder Image -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                        <img src="https://i.postimg.cc/N05jbgwL/Chat-GPT-Image-Jun-21-2025-03-37-54-PM.png" 
+                             alt="Founder Ram Prasad Nepal" class="w-full h-64 object-cover founder-image" loading="lazy">
+                        <div class="p-6">
+                            <h4 class="font-semibold text-gray-800 mb-2">Our Founder</h4>
+                            <p class="text-gray-600 text-sm">Ram Prasad Nepal, the visionary who started it all in 1978 with a simple dream of fair trade and community service.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- First Store Image -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                        <img src="https://i.postimg.cc/T3n91XsL/Chat-GPT-Image-Jun-21-2025-03-49-42-PM.png" 
+                             alt="First Store in Ason" class="w-full h-64 object-cover" loading="lazy">
+                        <div class="p-6">
+                            <h4 class="font-semibold text-gray-800 mb-2">Our First Store</h4>
+                            <p class="text-gray-600 text-sm">The humble beginnings in Ason, Kathmandu - where it all started with rice, salt, and lentils.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Expansion Image -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                        <img src="https://i.postimg.cc/hGkcrTr3/Chat-GPT-Image-Jun-21-2025-03-49-21-PM.png" 
+                             alt="Store Expansion" class="w-full h-64 object-cover" loading="lazy">
+                        <div class="p-6">
+                            <h4 class="font-semibold text-gray-800 mb-2">Our Growth</h4>
+                            <p class="text-gray-600 text-sm">From a single store to a nationwide chain, serving communities across Nepal with the same values.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Founder's Message -->
+            <div class="max-w-4xl mx-auto mb-16">
+                <div class="bg-gradient-to-r from-green-600 to-green-800 rounded-xl shadow-lg p-8 text-white">
+                    <h3 class="text-3xl font-bold mb-6 minecraft-font">Founder's Message</h3>
+                    <blockquote class="text-lg italic mb-6 leading-relaxed">
+                        "When I first opened Nepali-Mart in 1978, my goal was simple — to create a shop where everyone, no matter their background, could afford quality goods without fear of unfair pricing or adulteration. Over the years, Nepali-Mart has grown, but that goal has remained the same. I am proud that our mart continues to support Nepali farmers, small manufacturers, and the community at large. Thank you for being part of our journey."
+                    </blockquote>
+                    <div class="text-right">
+                        <p class="font-semibold">— Ram Prasad Nepal, Founder</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mission -->
+            <div class="max-w-4xl mx-auto mb-16">
+                <h3 class="text-3xl font-bold text-center text-gray-800 mb-8 minecraft-font">Our Mission</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-white rounded-xl shadow-lg p-6">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-seedling text-xl text-green-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800 mb-2">Promote Nepali-made products</h4>
+                                <p class="text-gray-600">Empower local farmers, artisans, and manufacturers.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-xl shadow-lg p-6">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-globe text-xl text-green-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800 mb-2">Ensure fair pricing</h4>
+                                <p class="text-gray-600">Ethical trade practices, upholding the trust of every customer.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-xl shadow-lg p-6">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-recycle text-xl text-green-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800 mb-2">Lead in sustainable retailing</h4>
+                                <p class="text-gray-600">Eco-friendly packaging, waste reduction, and community initiatives.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-xl shadow-lg p-6">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-truck text-xl text-green-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800 mb-2">Deliver convenience with integrity</h4>
+                                <p class="text-gray-600">Blending modern technology with timeless values.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Awards & Recognitions -->
+            <div class="max-w-4xl mx-auto mb-16">
+                <h3 class="text-3xl font-bold text-center text-gray-800 mb-8 minecraft-font">Awards & Recognitions</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-green-600">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-trophy text-xl text-yellow-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800 mb-1">1992 — Consumer Rights Group Nepal Recognition</h4>
+                                <p class="text-gray-600">For pioneering standardized pricing on essential goods in Kathmandu Valley.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-green-600" id="award-2008">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-trophy text-xl text-yellow-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800 mb-1">2008 — Nepal Business Review Green Retail Award</h4>
+                                <p class="text-gray-600">For introducing eco-friendly packaging across all store locations.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-green-600" id="award-2016">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-trophy text-xl text-yellow-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800 mb-1">2016 — National E-Commerce Innovation Award</h4>
+                                <p class="text-gray-600">For being among the first traditional marts in Nepal to successfully transition to an online platform.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-green-600" id="award-2021">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-trophy text-xl text-yellow-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800 mb-1">2021 — Social Impact Excellence Award</h4>
+                                <p class="text-gray-600">For outstanding support during the 2015 earthquake recovery and continued investment in rural cooperatives.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Core Values -->
+            <div class="max-w-4xl mx-auto mb-16">
+                <h3 class="text-3xl font-bold text-center text-gray-800 mb-8 minecraft-font">Our Core Values</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="bg-white rounded-xl shadow-lg p-6 text-center">
+                        <div class="w-16 h-16 mx-auto mb-4 bg-yellow-100 rounded-full flex items-center justify-center">
+                            <i class="fas fa-heart text-2xl text-yellow-600"></i>
+                        </div>
+                        <h4 class="font-semibold text-gray-800 mb-2">Integrity First</h4>
+                        <p class="text-gray-600 text-sm">We believe in honest pricing, transparent sourcing, and keeping promises to our customers, suppliers, and community.</p>
+                    </div>
+                    <div class="bg-white rounded-xl shadow-lg p-6 text-center">
+                        <div class="w-16 h-16 mx-auto mb-4 bg-green-100 rounded-full flex items-center justify-center">
+                            <i class="fas fa-seedling text-2xl text-green-600"></i>
+                        </div>
+                        <h4 class="font-semibold text-gray-800 mb-2">Support Local</h4>
+                        <p class="text-gray-600 text-sm">Over 60% of our products are proudly sourced from Nepali farmers, artisans, and cooperatives.</p>
+                    </div>
+                    <div class="bg-white rounded-xl shadow-lg p-6 text-center">
+                        <div class="w-16 h-16 mx-auto mb-4 bg-blue-100 rounded-full flex items-center justify-center">
+                            <i class="fas fa-leaf text-2xl text-blue-600"></i>
+                        </div>
+                        <h4 class="font-semibold text-gray-800 mb-2">Sustainability Matters</h4>
+                        <p class="text-gray-600 text-sm">From eco-friendly packaging to reducing food waste, we aim to protect Nepal's natural beauty for future generations.</p>
+                    </div>
+                    <div class="bg-white rounded-xl shadow-lg p-6 text-center">
+                        <div class="w-16 h-16 mx-auto mb-4 bg-purple-100 rounded-full flex items-center justify-center">
+                            <i class="fas fa-hands-helping text-2xl text-purple-600"></i>
+                        </div>
+                        <h4 class="font-semibold text-gray-800 mb-2">Community Commitment</h4>
+                        <p class="text-gray-600 text-sm">We actively engage in disaster relief, rural development, and women's empowerment initiatives.</p>
+                    </div>
+                    <div class="bg-white rounded-xl shadow-lg p-6 text-center">
+                        <div class="w-16 h-16 mx-auto mb-4 bg-red-100 rounded-full flex items-center justify-center">
+                            <i class="fas fa-bolt text-2xl text-red-600"></i>
+                        </div>
+                        <h4 class="font-semibold text-gray-800 mb-2">Innovation with Purpose</h4>
+                        <p class="text-gray-600 text-sm">We adopt technology not just to grow, but to make shopping more accessible and ethical.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Timeline -->
+            <div class="max-w-4xl mx-auto mb-16">
+                <h3 class="text-3xl font-bold text-center text-gray-800 mb-8 minecraft-font">Our Journey</h3>
+                <div class="relative">
+                    <!-- Timeline Line -->
+                    <div class="absolute left-4 md:left-1/2 transform md:-translate-x-1/2 w-0.5 h-full bg-green-600"></div>
+                    
+                    <!-- Timeline Items -->
+                    <div class="space-y-8">
+                        <div class="relative flex items-center">
+                            <div class="absolute left-2 md:left-1/2 transform md:-translate-x-1/2 w-4 h-4 bg-green-600 rounded-full"></div>
+                            <div class="ml-8 md:ml-0 md:w-1/2 md:pr-8 md:text-right">
+                                <h4 class="font-semibold text-gray-800">1978</h4>
+                                <p class="text-gray-600">Nepali-Mart is founded in Ason, Kathmandu by Ram Prasad Nepal as a family-run shop for daily essentials.</p>
+                            </div>
+                            <div class="hidden md:block md:w-1/2 md:pl-8"></div>
+                        </div>
+                        
+                        <div class="relative flex items-center">
+                            <div class="absolute left-2 md:left-1/2 transform md:-translate-x-1/2 w-4 h-4 bg-green-600 rounded-full"></div>
+                            <div class="hidden md:block md:w-1/2 md:pr-8 md:text-right"></div>
+                            <div class="ml-8 md:ml-0 md:w-1/2 md:pl-8">
+                                <h4 class="font-semibold text-gray-800">1985</h4>
+                                <p class="text-gray-600">Expanded to 3 outlets across the Kathmandu Valley, introducing transparent pricing and local sourcing agreements.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="relative flex items-center">
+                            <div class="absolute left-2 md:left-1/2 transform md:-translate-x-1/2 w-4 h-4 bg-green-600 rounded-full"></div>
+                            <div class="ml-8 md:ml-0 md:w-1/2 md:pr-8 md:text-right">
+                                <h4 class="font-semibold text-gray-800">1992</h4>
+                                <p class="text-gray-600">Recognized by Consumer Rights Group Nepal for fair trade practices.</p>
+                            </div>
+                            <div class="hidden md:block md:w-1/2 md:pl-8"></div>
+                        </div>
+                        
+                        <div class="relative flex items-center">
+                            <div class="absolute left-2 md:left-1/2 transform md:-translate-x-1/2 w-4 h-4 bg-green-600 rounded-full"></div>
+                            <div class="hidden md:block md:w-1/2 md:pr-8 md:text-right"></div>
+                            <div class="ml-8 md:ml-0 md:w-1/2 md:pl-8">
+                                <h4 class="font-semibold text-gray-800">2000</h4>
+                                <p class="text-gray-600">Opened our 10th location and launched in-store quality control labs.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="relative flex items-center">
+                            <div class="absolute left-2 md:left-1/2 transform md:-translate-x-1/2 w-4 h-4 bg-green-600 rounded-full"></div>
+                            <div class="ml-8 md:ml-0 md:w-1/2 md:pr-8 md:text-right">
+                                <h4 class="font-semibold text-gray-800">2008</h4>
+                                <p class="text-gray-600">Switched to eco-friendly packaging and began partnerships with women's cooperatives for handmade products.</p>
+                            </div>
+                            <div class="hidden md:block md:w-1/2 md:pl-8"></div>
+                        </div>
+                        
+                        <div class="relative flex items-center">
+                            <div class="absolute left-2 md:left-1/2 transform md:-translate-x-1/2 w-4 h-4 bg-green-600 rounded-full"></div>
+                            <div class="ml-8 md:ml-0 md:w-1/2 md:pr-8 md:text-right"></div>
+                            <div class="ml-8 md:ml-0 md:w-1/2 md:pl-8">
+                                <h4 class="font-semibold text-gray-800">2014</h4>
+                                <p class="text-gray-600">Nepali-Mart Online is launched — one of Nepal's first mart-to-door e-commerce platforms.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="relative flex items-center">
+                            <div class="absolute left-2 md:left-1/2 transform md:-translate-x-1/2 w-4 h-4 bg-green-600 rounded-full"></div>
+                            <div class="ml-8 md:ml-0 md:w-1/2 md:pr-8 md:text-right"></div>
+                            <div class="ml-8 md:ml-0 md:w-1/2 md:pl-8">
+                                <h4 class="font-semibold text-gray-800">2016</h4>
+                                <p class="text-gray-600">Won National E-Commerce Innovation Award.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="relative flex items-center">
+                            <div class="absolute left-2 md:left-1/2 transform md:-translate-x-1/2 w-4 h-4 bg-green-600 rounded-full"></div>
+                            <div class="ml-8 md:ml-0 md:w-1/2 md:pr-8 md:text-right"></div>
+                            <div class="ml-8 md:ml-0 md:w-1/2 md:pl-8">
+                                <h4 class="font-semibold text-gray-800">2021</h4>
+                                <p class="text-gray-600">Crossed 50,000 online customers and expanded delivery coverage nationwide.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="relative flex items-center">
+                            <div class="absolute left-2 md:left-1/2 transform md:-translate-x-1/2 w-4 h-4 bg-green-600 rounded-full"></div>
+                            <div class="ml-8 md:ml-0 md:w-1/2 md:pr-8 md:text-right"></div>
+                            <div class="ml-8 md:ml-0 md:w-1/2 md:pl-8">
+                                <h4 class="font-semibold text-gray-800">Today</h4>
+                                <p class="text-gray-600">Nepali-Mart continues to lead as a trusted retailer blending tradition with modern convenience.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Customer Testimonials -->
+            <div class="max-w-4xl mx-auto">
+                <h3 class="text-3xl font-bold text-center text-gray-800 mb-8 minecraft-font">Customer Testimonials</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-white rounded-xl shadow-lg p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
+                                <i class="fas fa-star text-yellow-500"></i>
+                            </div>
+                        </div>
+                        <blockquote class="text-gray-700 mb-4 italic">
+                            "I've shopped at Nepali-Mart since I was a child visiting Ason with my mother. Even today, their online service brings the same trust and value to my home."
+                        </blockquote>
+                        <div class="flex items-center">
+                            <div class="w-8 h-8 bg-green-600 rounded-full flex items-center justify-center text-white text-sm font-bold">S</div>
+                            <div class="ml-3">
+                                <p class="font-semibold text-gray-800">Sanjita R.</p>
+                                <p class="text-sm text-gray-600">Kathmandu</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl shadow-lg p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
+                                <i class="fas fa-star text-yellow-500"></i>
+                            </div>
+                        </div>
+                        <blockquote class="text-gray-700 mb-4 italic">
+                            "What I admire most about Nepali-Mart is their commitment to local farmers. Their products feel authentic and fresh."
+                        </blockquote>
+                        <div class="flex items-center">
+                            <div class="w-8 h-8 bg-green-600 rounded-full flex items-center justify-center text-white text-sm font-bold">D</div>
+                            <div class="ml-3">
+                                <p class="font-semibold text-gray-800">Dipesh K.</p>
+                                <p class="text-sm text-gray-600">Pokhara</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl shadow-lg p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
+                                <i class="fas fa-star text-yellow-500"></i>
+                            </div>
+                        </div>
+                        <blockquote class="text-gray-700 mb-4 italic">
+                            "During the lockdown, Nepali-Mart was a lifeline. Their team delivered essentials quickly, and their prices stayed fair when others hiked rates."
+                        </blockquote>
+                        <div class="flex items-center">
+                            <div class="w-8 h-8 bg-green-600 rounded-full flex items-center justify-center text-white text-sm font-bold">M</div>
+                            <div class="ml-3">
+                                <p class="font-semibold text-gray-800">Manish T.</p>
+                                <p class="text-sm text-gray-600">Biratnagar</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modern Footer -->
+    <footer class="bg-gray-900 text-white" role="contentinfo" aria-label="Footer">
+        <div class="container mx-auto px-4 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Company Info -->
+                <div class="col-span-1 md:col-span-2">
+                    <div class="flex items-center space-x-2 mb-4">
+                        <div class="w-10 h-10 bg-green-600 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-shopping-basket text-white text-xl"></i>
+                        </div>
+                        <span class="text-2xl font-bold minecraft-font">Nepali Mart</span>
+                    </div>
+                    <p class="text-gray-400 mb-4 max-w-md">
+                        Your trusted neighborhood store providing quality products and exceptional service. 
+                        We're committed to bringing you the best shopping experience.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-facebook-f text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-youtube text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="about.html" class="text-gray-400 hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="products.html" class="text-gray-400 hover:text-white transition-colors">Products</a></li>
+                        <li><a href="offers.html" class="text-gray-400 hover:text-white transition-colors">Offers</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-white transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Support -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Support</h3>
+                    <ul class="space-y-2">
+                        <li><a href="help-center.html" class="text-gray-400 hover:text-white transition-colors">Help Center</a></li>
+                        <li><a href="privacy-policy.html" class="text-gray-400 hover:text-white transition-colors">Privacy Policy</a></li>
+                        <li><a href="terms-of-service.html" class="text-gray-400 hover:text-white transition-colors">Terms of Service</a></li>
+                        <li><a href="shipping-info.html" class="text-gray-400 hover:text-white transition-colors">Shipping Info</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center">
+                <p class="text-gray-400">&copy; 2024 Nepali Mart. All Rights Reserved.</p>
+                <p class="text-gray-400 mt-2">Contact: info@nepalimart.com | Phone: +977-1-2345678</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="src/script.js"></script>
+</body>
+</html>

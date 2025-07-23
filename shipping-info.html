@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shipping Information - Nepali Mart</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="bg-gray-50">
+    <nav class="bg-white shadow-lg">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center space-x-2">
+                    <div class="w-10 h-10 bg-green-600 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-shopping-basket text-white text-xl"></i>
+                    </div>
+                    <span class="text-2xl font-bold">Nepali Mart</span>
+                </div>
+                <a href="index.html" class="text-gray-600 hover:text-green-600 transition-colors">Back to Home</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mx-auto px-4 py-12">
+        <h1 class="text-4xl font-bold text-center text-gray-800 mb-12">Shipping Information</h1>
+        
+        <div class="max-w-4xl mx-auto">
+            <div class="bg-white rounded-lg shadow-lg p-8">
+                <div class="space-y-8">
+                    <div>
+                        <h2 class="text-2xl font-bold mb-4">Delivery Areas</h2>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="bg-green-50 p-4 rounded-lg">
+                                <h3 class="font-semibold text-green-800 mb-2">Kathmandu Valley</h3>
+                                <p class="text-green-700">Free delivery on orders above Rs. 6,650</p>
+                                <p class="text-green-700">Standard delivery: 1-2 business days</p>
+                            </div>
+                            <div class="bg-blue-50 p-4 rounded-lg">
+                                <h3 class="font-semibold text-blue-800 mb-2">Other Cities</h3>
+                                <p class="text-blue-700">Delivery charge: Rs. 200-500</p>
+                                <p class="text-blue-700">Standard delivery: 3-5 business days</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h2 class="text-2xl font-bold mb-4">Delivery Options</h2>
+                        <div class="space-y-4">
+                            <div class="flex items-center space-x-4 p-4 bg-gray-50 rounded-lg">
+                                <i class="fas fa-truck text-2xl text-green-600"></i>
+                                <div>
+                                    <h3 class="font-semibold">Standard Delivery</h3>
+                                    <p class="text-gray-600">1-3 business days within Kathmandu Valley</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-4 p-4 bg-gray-50 rounded-lg">
+                                <i class="fas fa-clock text-2xl text-blue-600"></i>
+                                <div>
+                                    <h3 class="font-semibold">Express Delivery</h3>
+                                    <p class="text-gray-600">Same day delivery (orders placed before 2 PM)</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-4 p-4 bg-gray-50 rounded-lg">
+                                <i class="fas fa-store text-2xl text-purple-600"></i>
+                                <div>
+                                    <h3 class="font-semibold">Store Pickup</h3>
+                                    <p class="text-gray-600">Free pickup from our nearest store</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h2 class="text-2xl font-bold mb-4">Delivery Charges</h2>
+                        <div class="overflow-x-auto">
+                            <table class="w-full border-collapse border border-gray-300">
+                                <thead>
+                                    <tr class="bg-green-600 text-white">
+                                        <th class="border border-gray-300 px-4 py-2">Order Value</th>
+                                        <th class="border border-gray-300 px-4 py-2">Kathmandu Valley</th>
+                                        <th class="border border-gray-300 px-4 py-2">Other Cities</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="border border-gray-300 px-4 py-2">Below Rs. 6,650</td>
+                                        <td class="border border-gray-300 px-4 py-2">Rs. 200</td>
+                                        <td class="border border-gray-300 px-4 py-2">Rs. 300-500</td>
+                                    </tr>
+                                    <tr class="bg-green-50">
+                                        <td class="border border-gray-300 px-4 py-2">Above Rs. 6,650</td>
+                                        <td class="border border-gray-300 px-4 py-2">FREE</td>
+                                        <td class="border border-gray-300 px-4 py-2">Rs. 200-400</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h2 class="text-2xl font-bold mb-4">Tracking Your Order</h2>
+                        <p class="text-gray-600 mb-4">Once your order is shipped, you will receive:</p>
+                        <ul class="list-disc list-inside space-y-2 text-gray-600">
+                            <li>SMS notification with tracking number</li>
+                            <li>Email confirmation with delivery details</li>
+                            <li>Real-time tracking updates</li>
+                            <li>Delivery confirmation call</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-yellow-50 p-6 rounded-lg">
+                        <h2 class="text-xl font-bold mb-4 text-yellow-800">Important Notes</h2>
+                        <ul class="space-y-2 text-yellow-700">
+                            <li>• Delivery times may vary during holidays and peak seasons</li>
+                            <li>• We require a valid phone number for delivery coordination</li>
+                            <li>• Someone must be present to receive the delivery</li>
+                            <li>• We do not deliver to P.O. boxes</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 
