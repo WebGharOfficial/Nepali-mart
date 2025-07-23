@@ -6,83 +6,164 @@
     <meta name="description" content="Contact Nepali Mart">
     <title>Contact Us - Nepali Mart</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="src/styles.css">
 </head>
-<body class="bg-gray-100">
-
+<body class="bg-gray-50 font-sans">
     <!-- Navigation Bar -->
-    <nav class="bg-white shadow-md">
-        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
-            <a class="text-2xl font-bold text-gray-800" href="index.html">Nepali Mart</a>
-            <div class="hidden md:flex space-x-6">
-                <a class="text-gray-800 hover:text-blue-500" href="index.html">Home</a>
-                <a class="text-gray-800 hover:text-blue-500" href="products.html">Products</a>
-                <a class="text-gray-800 hover:text-blue-500" href="offers.html">Offers</a>
-                <a class="text-gray-800 hover:text-blue-500" href="about.html">About Us</a>
-                <a class="text-gray-800 hover:text-blue-500" href="contact.html">Contact</a>
-                <a class="text-gray-800 hover:text-blue-500" href="cart.html">
-                    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
-                    </svg>
+    <nav class="bg-white shadow-lg sticky top-0 z-50 border-b-2 border-green-600" role="navigation" aria-label="Main Navigation">
+        <div class="container mx-auto px-4 lg:px-6 py-4">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
+                <a href="index.html" class="flex items-center space-x-2" aria-label="Go to homepage">
+                    <div class="w-10 h-10 bg-green-600 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-shopping-basket text-white text-xl"></i>
+                    </div>
+                    <span class="text-2xl font-bold text-gray-800 minecraft-font">Nepali Mart</span>
                 </a>
-            </div>
-            <div class="md:hidden">
-                <button class="text-gray-800 focus:outline-none">
-                    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                    </svg>
+                <!-- Desktop Navigation -->
+                <div class="hidden lg:flex items-center space-x-8">
+                    <div class="relative group">
+                        <button class="flex items-center space-x-1 text-gray-700 hover:text-green-600 transition-colors">
+                            <span>Categories</span>
+                            <i class="fas fa-chevron-down text-sm"></i>
+                        </button>
+                        <div class="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-xl border border-gray-200 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                            <a href="groceries.html" class="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600">Groceries</a>
+                            <a href="furniture.html" class="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600">Furniture</a>
+                            <a href="electronics.html" class="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600">Electronics</a>
+                            <a href="sports.html" class="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600">Sports</a>
+                        </div>
+                    </div>
+                    <a href="index.html" class="text-gray-700 hover:text-green-600 transition-colors font-medium">Home</a>
+                    <a href="products.html" class="text-gray-700 hover:text-green-600 transition-colors font-medium">Products</a>
+                    <a href="offers.html" class="text-gray-700 hover:text-green-600 transition-colors font-medium">Offers</a>
+                    <a href="about.html" class="text-gray-700 hover:text-green-600 transition-colors font-medium">About</a>
+                    <a href="contact.html" class="text-green-600 font-bold transition-colors font-medium">Contact</a>
+                    <a href="cart.html" class="relative text-gray-700 hover:text-green-600 transition-colors">
+                        <i class="fas fa-shopping-cart text-xl"></i>
+                        <span id="cart-count" class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center font-bold">0</span>
+                    </a>
+                </div>
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="lg:hidden text-gray-700 focus:outline-none" aria-label="Open mobile menu">
+                    <i class="fas fa-bars text-xl"></i>
                 </button>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="lg:hidden hidden mt-4 pb-4 border-t border-gray-200">
+                <div class="mt-4 space-y-2">
+                    <a href="index.html" class="block py-2 text-gray-700 hover:text-green-600">Home</a>
+                    <a href="products.html" class="block py-2 text-gray-700 hover:text-green-600">Products</a>
+                    <a href="offers.html" class="block py-2 text-gray-700 hover:text-green-600">Offers</a>
+                    <a href="about.html" class="block py-2 text-gray-700 hover:text-green-600">About</a>
+                    <a href="contact.html" class="block py-2 text-green-600 font-bold">Contact</a>
+                    <div class="border-t border-gray-200 pt-2 mt-2">
+                        <h3 class="font-semibold text-gray-500 text-sm px-2 mb-1">Categories</h3>
+                        <a href="groceries.html" class="block py-2 px-4 text-gray-700 hover:text-green-600 hover:bg-green-50 rounded">Groceries</a>
+                        <a href="furniture.html" class="block py-2 px-4 text-gray-700 hover:text-green-600 hover:bg-green-50 rounded">Furniture</a>
+                        <a href="electronics.html" class="block py-2 px-4 text-gray-700 hover:text-green-600 hover:bg-green-50 rounded">Electronics</a>
+                        <a href="sports.html" class="block py-2 px-4 text-gray-700 hover:text-green-600 hover:bg-green-50 rounded">Sports</a>
+                    </div>
+                </div>
             </div>
         </div>
     </nav>
-
     <!-- Contact Section -->
-    <main class="container mx-auto px-6 py-12">
-        <div class="bg-white rounded-lg shadow-md p-8">
-            <h2 class="text-3xl font-bold text-center text-gray-800 mb-8">Contact Us</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <!-- Contact Form -->
-                <form>
-                    <div class="mb-4">
-                        <label class="block text-gray-700 text-sm font-bold mb-2" for="name">Name</label>
-                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="name" type="text" placeholder="Your Name">
-                    </div>
-                    <div class="mb-4">
-                        <label class="block text-gray-700 text-sm font-bold mb-2" for="email">Email</label>
-                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="email" type="email" placeholder="Your Email">
-                    </div>
-                    <div class="mb-6">
-                        <label class="block text-gray-700 text-sm font-bold mb-2" for="message">Message</label>
-                        <textarea class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="message" rows="5" placeholder="Your Message"></textarea>
-                    </div>
-                    <div class="flex items-center justify-between">
-                        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
-                            Send Message
-                        </button>
-                    </div>
-                </form>
-                <!-- Map Placeholder -->
-                <div>
-                    <div class="bg-gray-300 h-full rounded-lg">
-                        <p class="text-center text-gray-500 p-4">Map of Kathmandu, Nepal</p>
+    <main class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="bg-white rounded-xl shadow-lg p-8 max-w-4xl mx-auto">
+                <h1 class="text-4xl font-bold text-center text-gray-800 minecraft-font mb-8">Contact Us</h1>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Contact Form -->
+                    <form>
+                        <div class="mb-4">
+                            <label class="block text-gray-700 text-sm font-bold mb-2" for="name">Name</label>
+                            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="name" type="text" placeholder="Your Name">
+                        </div>
+                        <div class="mb-4">
+                            <label class="block text-gray-700 text-sm font-bold mb-2" for="email">Email</label>
+                            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="email" type="email" placeholder="Your Email">
+                        </div>
+                        <div class="mb-6">
+                            <label class="block text-gray-700 text-sm font-bold mb-2" for="message">Message</label>
+                            <textarea class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="message" rows="5" placeholder="Your Message"></textarea>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <button class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
+                                Send Message
+                            </button>
+                        </div>
+                    </form>
+                    <!-- Map Placeholder -->
+                    <div>
+                        <div class="bg-gray-300 h-full rounded-lg flex items-center justify-center min-h-[200px]">
+                            <p class="text-center text-gray-500 p-4">Map of Kathmandu, Nepal</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </main>
-
     <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-8">
-        <div class="container mx-auto px-6 text-center">
-            <p>&copy; 2024 Nepali Mart. All Rights Reserved.</p>
-            <div class="flex justify-center space-x-4 mt-4">
-                <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-instagram"></i></a>
-                <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-twitter"></i></a>
+    <footer class="bg-gray-900 text-white">
+        <div class="container mx-auto px-4 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Company Info -->
+                <div class="col-span-1 md:col-span-2">
+                    <div class="flex items-center space-x-2 mb-4">
+                        <div class="w-10 h-10 bg-green-600 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-shopping-basket text-white text-xl"></i>
+                        </div>
+                        <span class="text-2xl font-bold minecraft-font">Nepali Mart</span>
+                    </div>
+                    <p class="text-gray-400 mb-4 max-w-md">
+                        Your trusted neighborhood store providing quality products and exceptional service. 
+                        We're committed to bringing you the best shopping experience.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-facebook-f text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-youtube text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="about.html" class="text-gray-400 hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="products.html" class="text-gray-400 hover:text-white transition-colors">Products</a></li>
+                        <li><a href="offers.html" class="text-gray-400 hover:text-white transition-colors">Offers</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-white transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                <!-- Support -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Support</h3>
+                    <ul class="space-y-2">
+                        <li><a href="help-center.html" class="text-gray-400 hover:text-white transition-colors">Help Center</a></li>
+                        <li><a href="privacy-policy.html" class="text-gray-400 hover:text-white transition-colors">Privacy Policy</a></li>
+                        <li><a href="terms-of-service.html" class="text-gray-400 hover:text-white transition-colors">Terms of Service</a></li>
+                        <li><a href="shipping-info.html" class="text-gray-400 hover:text-white transition-colors">Shipping Info</a></li>
+                    </ul>
+                </div>
             </div>
-            <p class="mt-4">Contact: info@nepalimart.com</p>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center">
+                <p class="text-gray-400">&copy; 2024 Nepali Mart. All Rights Reserved.</p>
+                <p class="text-gray-400 mt-2">Contact: info@nepalimart.com | Phone: +977-1-2345678</p>
+            </div>
         </div>
     </footer>
-
+    <script src="src/script.js"></script>
 </body>
 </html>
